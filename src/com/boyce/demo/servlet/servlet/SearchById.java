@@ -25,21 +25,18 @@ public class SearchById extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+        //====================== 请求头 ======================
         request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html");
         response.setCharacterEncoding("utf-8");
-        //获取用户ID
+        //====================== 查询数据库 ======================
         String sid = request.getParameter("id");
-        int id = Integer.parseInt(sid);
         SqlFactory sBean = new SqlFactory();
-        Student jBean = sBean.getSearchById(id);
-        //用户ID
-        request.setAttribute("id", jBean.getId());
-        //用户姓名
-        request.setAttribute("name", jBean.getName());
-        //用户年龄
-        request.setAttribute("age", jBean.getAge());
-        //转发
+        Student jBean = sBean.getSearchById(Integer.parseInt(sid));
+        //====================== 转发 ======================
+        request.setAttribute("id", jBean.getId());//用户ID
+        request.setAttribute("name", jBean.getName());//用户姓名
+        request.setAttribute("age", jBean.getAge());//用户年龄
         request.getRequestDispatcher("Update.jsp").forward(request, response);
     }
 }

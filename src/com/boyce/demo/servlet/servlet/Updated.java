@@ -24,8 +24,8 @@ public class Updated extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
         request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html");
         response.setCharacterEncoding("utf-8");
         //获得前台表单信息
         String sid = request.getParameter("id");
@@ -40,11 +40,11 @@ public class Updated extends HttpServlet {
         jBean.setAge(age);
         SqlFactory sBean = new SqlFactory();
         int count = sBean.getUpdate(jBean);
-        String url = "";
+        String url;
         if (count > 0) {
             url = "SearchList.jsp";
-        }else {
-            url ="error.jsp";
+        } else {
+            url = "error.jsp";
             request.setAttribute("error", "更新");
         }
         request.getRequestDispatcher(url).forward(request, response);

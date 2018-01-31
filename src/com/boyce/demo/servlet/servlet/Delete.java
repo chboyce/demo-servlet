@@ -30,7 +30,7 @@ public class Delete extends HttpServlet {
         //调用模型层删除方法
         SqlFactory sBean = new SqlFactory();
         int count = sBean.getDelete(id);
-        String url = "";
+        String url ;
         if (count > 0) {
             url = "SearchList.jsp";
         } else {

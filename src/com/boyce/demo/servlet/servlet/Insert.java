@@ -25,8 +25,9 @@ public class Insert extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+        //====================== 请求头 ======================
         request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html");
         response.setCharacterEncoding("utf-8");
         //获取前台页面数据
         String name = request.getParameter("name");
@@ -39,7 +40,7 @@ public class Insert extends HttpServlet {
         //调用模型层
         SqlFactory sBean = new SqlFactory();
         int count = sBean.getInsert(jBean);
-        String url = "";
+        String url;
         if (count > 0) {
             url = "SearchList.jsp";
         } else {
