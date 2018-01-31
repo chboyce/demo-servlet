@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+    <!--WEB应用的名字-->
+    <display-name>my-servlet</display-name>
+
+    <!--WEB应用的描述信息-->
+    <description>Tomcat Example servlets and JSP pages.</description>
+
+    <!--Web应用图标：指出IDE和GUI工具用来表示Web应用的大图标和小图标-->
+    <icon>
+        <small-icon>images/app_face.png</small-icon>
+        <large-icon>images/app_face.png</large-icon>
+    </icon>
+
+    <!--应用范围内的初始化参数-->
+    <context-param>
+        <param-name>author</param-name>
+        <param-value>boyce</param-value>
+    </context-param>
+
+    <!--指定欢迎文件页配置-->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!--配置错误页面-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/NotFound.jsp</location>
+    </error-page>
+
+    <!--Servlet配置-->
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>com.boyce.demo.servlet.servlet.MyServlet</servlet-class>
+        <init-param>
+            <param-name>mobile</param-name>
+            <param-value>13511110000</param-value>
+        </init-param>
+    </servlet>
+    <!--URL-->
+    <servlet-mapping>
+        <servlet-name>MyServlet</servlet-name>
+        <url-pattern>/MyServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- ... -->
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
+        <init-param>
+            <param-name>firstName</param-name>
+            <param-value>Bill</param-value>
+        </init-param>
+        <init-param>
+            <param-name>email</param-name>
+            <param-value>163@163.com</param-value>
+        </init-param>
+    </servlet>
+    <!-- ... -->
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern>/index.jsp</url-pattern>
+    </servlet-mapping>
+    <!-- ... -->
+
+    <!--====================== 3333333333333333 ======================-->
+    <servlet>
+        <servlet-name>Update</servlet-name>
+        <servlet-class>com.boyce.demo.servlet.servlet.Updated</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchById</servlet-name>
+        <servlet-class>com.boyce.demo.servlet.servlet.SearchById</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Insert</servlet-name>
+        <servlet-class>com.boyce.demo.servlet.servlet.Insert</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Delete</servlet-name>
+        <servlet-class>com.boyce.demo.servlet.servlet.Delete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Update</servlet-name>
+        <url-pattern>/Update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchById</servlet-name>
+        <url-pattern>/SearchById</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Insert</servlet-name>
+        <url-pattern>/Insert</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Delete</servlet-name>
+        <url-pattern>/Delete</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>
